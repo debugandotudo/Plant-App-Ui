@@ -15,17 +15,19 @@ object frmHomePage: TfrmHomePage
     Size.Height = 758.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 0
     TabPosition = None
     Sizes = (
+      357s
+      758s
       357s
       758s)
     object tab_home_page: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -953,6 +955,18 @@ object frmHomePage: TfrmHomePage
           end
         end
       end
+    end
+    object tab_plant_page: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tab_plant_page'
     end
   end
 end
