@@ -47,6 +47,8 @@ type
     img_menu_lateral: TImage;
     ShadowEffect4: TShadowEffect;
     tab_plant_page: TTabItem;
+    img_back: TImage;
+    Layout1: TLayout;
     procedure FormShow(Sender: TObject);
   private
     procedure CarregarRecomended;
