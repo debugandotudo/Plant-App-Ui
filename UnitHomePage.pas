@@ -47,9 +47,39 @@ type
     img_menu_lateral: TImage;
     ShadowEffect4: TShadowEffect;
     tab_plant_page: TTabItem;
+    lay_btn_back: TLayout;
+    cir_btn_back: TCircle;
     img_back: TImage;
+    rect_plant_viewer: TRectangle;
+    lay_plant_viewer: TLayout;
+    ShadowEffect5: TShadowEffect;
+    lay_bottom_plant_page: TLayout;
     Layout1: TLayout;
+    txt_name_plant: TLabel;
+    txt_currrency: TLabel;
+    txt_subtitle: TLabel;
+    lay_btn_buy_desc: TLayout;
+    rect_btn_buy: TRectangle;
+    Label7: TLabel;
+    rect_btn_description: TRectangle;
+    Label8: TLabel;
+    rect_sun: TRectangle;
+    lay_btns: TLayout;
+    ShadowEffect6: TShadowEffect;
+    img_sun: TImage;
+    rect_temp: TRectangle;
+    img_temp: TImage;
+    Rectangle1: TRectangle;
+    Image1: TImage;
+    rect_ar: TRectangle;
+    img_ar: TImage;
     procedure FormShow(Sender: TObject);
+    procedure lb_recomendedItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
+    procedure cir_btn_backClick(Sender: TObject);
+    procedure lb_featured_plantsItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
+    procedure FormResize(Sender: TObject);
   private
     procedure CarregarRecomended;
     procedure CarregarFeatured;
@@ -68,13 +98,34 @@ implementation
 
 uses Unit_frame_recomended, Unit_frame_featured_plants;
 
+procedure TfrmHomePage.FormResize(Sender: TObject);
+begin
+   rect_btn_buy.Width         := Trunc(frmHomePage.Width / 2);
+   rect_btn_description.Width := Trunc(frmHomePage.Width / 2);
+end;
+
 procedure TfrmHomePage.FormShow(Sender: TObject);
 begin
   lay_top_home.Width := frmHomePage.Width;
   lay_top_home.Height := Trunc(frmHomePage.Height / 4) ;
 
+  TabControl.ActiveTab := tab_home_page;
+
   CarregarRecomended;
   CarregarFeatured;
+end;
+
+procedure TfrmHomePage.lb_featured_plantsItemClick(const Sender: TCustomListBox;
+  const Item: TListBoxItem);
+begin
+  lb_featured_plants.ItemIndex := -1;
+end;
+
+procedure TfrmHomePage.lb_recomendedItemClick(const Sender: TCustomListBox;
+  const Item: TListBoxItem);
+begin
+  lb_recomended.ItemIndex := 0;
+  TabControl.GotoVisibleTab(tab_plant_page.Index);
 end;
 
 procedure  TfrmHomePage.CarregarRecomended;
@@ -105,6 +156,11 @@ begin
     lb_recomended.AddObject(item);
   end;
 
+end;
+
+procedure TfrmHomePage.cir_btn_backClick(Sender: TObject);
+begin
+  TabControl.GotoVisibleTab(tab_home_page.Index);
 end;
 
 procedure  TfrmHomePage.CarregarFeatured;
